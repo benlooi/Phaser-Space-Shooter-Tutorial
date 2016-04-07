@@ -20,7 +20,7 @@ var SpaceShooter = {
 		game.add.sprite(game.world.width-100,game.world.height-100,'dude');
 
 		//here, we add the image starfield as a tileSprite. 
-		starfield = game.add.tileSprite(0, 0, 800, 600, 'starfield');
+		starfield = game.add.tileSprite(0, 0, 800, 600, 'stars');
 		
 	},
 	update: function () {

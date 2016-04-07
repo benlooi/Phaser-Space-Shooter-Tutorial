@@ -30,9 +30,6 @@ var SpaceShooter = {
 				//so...together, we create 5 rows of 20 aliens
 				var alien=aliens.create(i*20+20,h*50+50,'baddie');
 			}
-			
-
-
 		}
 		game.add.sprite(10,10,'baddie');
 		game.add.sprite(game.world.width/2,game.world.height-100,'dude');

@@ -15,6 +15,8 @@ var SpaceShooter = {
 		//let's put an image on our game world!
 		game.add.sprite(10,10,'baddie');
 		game.add.sprite(game.world.width-100,game.world.height-100,'dude');
+
+		
 		
 	},
 	update: function () {
