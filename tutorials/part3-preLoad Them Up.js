@@ -10,7 +10,7 @@ var SpaceShooter = {
 		game.load.image('stars','assets/images/starfield.png');
 		game.load.spritesheet('baddie','assets/images/baddie.png',32,32);
 		game.load.spritesheet('dude','assets/images/dude.png',32,48);
-		game.load.spritesheet('kaboom','assets/images/explode.png',32,48);
+		game.load.spritesheet('kaboom','assets/images/explode.png',128,128);
 	},
 	create: function () {
 
