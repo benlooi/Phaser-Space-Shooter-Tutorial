@@ -1,7 +1,5 @@
 var game= new Phaser.Game(800,600,Phaser.AUTO,'');
 
-//let's add a moving background to simulate flying through space. The characters are actually staying still.
-//declare a variable first so we can refer to it throughout the state
 var starfield;
 var hero;
 var aliens;

@@ -1,4 +1,4 @@
-var game= new Phaser.Game(800,600,Phaser.AUTO,'');
+ -Mvar game= new Phaser.Game(800,600,Phaser.AUTO,'');
 
 //Here is where we write out game. Phaser has a framework consisting of three key things that 
 //a game does: Preload, Create  and Update.

@@ -65,6 +65,8 @@ var SpaceShooter = {
 }
 
 function fireAtEnemy () {
+	//this is to test if the click works...ain't no one's gonna
+	//pew pew pew with you!
 	console.log('fire at enemy...pew!pew!pew!')
 
 }

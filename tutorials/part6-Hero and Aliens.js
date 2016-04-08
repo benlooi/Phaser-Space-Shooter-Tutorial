@@ -1,7 +1,5 @@
 var game= new Phaser.Game(800,600,Phaser.AUTO,'');
 
-//let's add a moving background to simulate flying through space. The characters are actually staying still.
-//declare a variable first so we can refer to it throughout the state
 var starfield;
 var hero;
 var aliens;
@@ -24,10 +22,12 @@ var SpaceShooter = {
 
 		//We are using 2 loops...or a loop within a loop. Also called a nested loop.
 		//the first loop creates a row of 20 aliens...
+		//Too many aliens? Change i<20 to i<10!
 		for (var i=0;i<20;i++){
 			//the second loop creates 5 rows....
 			for(var h=0;h<5;h++){
 				//so...together, we create 5 rows of 20 aliens
+				//Try changing i*20+20 to i*50+20!
 				var alien=aliens.create(i*20+20,h*50+50,'baddie');
 			}
 		}
