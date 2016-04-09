@@ -9,9 +9,12 @@ var hero;
 var aliens;
 var cursors;
 var bullets;
-var leftKey,rightKey;
+var leftKey,rightKey,fireKey;
 var bullet;
 var explosion;
+var shot;
+var explode_sound;
+
 
 var SpaceShooter = {
 
@@ -21,6 +24,9 @@ var SpaceShooter = {
 		game.load.spritesheet('baddie','assets/images/baddie.png',32,32);
 		game.load.spritesheet('dude','assets/images/dude.png',32,48);
 		game.load.spritesheet('kaboom','assets/images/explode.png',128,128);
+		game.load.audio('shot','assets/audio/SHOOT007.mp3');
+		game.load.audio('explode_sound','assets/audio/explosion.mp3');
+
 	},
 	create: function () {
 
@@ -30,6 +36,9 @@ var SpaceShooter = {
 			//here, we add the image starfield as a tileSprite. 
 		starfield = game.add.tileSprite(0, 0, 800, 600, 'stars');
 		
+				
+		shot=game.add.audio('shot');
+		explode_sound=game.add.audio('explode_sound');
 		
 		aliens=game.add.group();
 
@@ -66,9 +75,11 @@ var SpaceShooter = {
 		cursors=game.input.keyboard.createCursorKeys();
 		leftKey=game.input.keyboard.addKey(Phaser.Keyboard.A);
 		rightKey=game.input.keyboard.addKey(Phaser.Keyboard.D);
+		fireKey=game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 		game.inputEnabled=true;
 		game.input.onDown.add(fireAtEnemy,this);
+		fireKey.onDown.add(fireAtEnemy,this);
 		
 	},
 	update: function () {
@@ -113,6 +124,8 @@ function fireAtEnemy () {
 	//first, create a bullet at the location of the hero.
 
 	bullet=bullets.create(hero.x,hero.y,'pewpew');
+	//include it when you fire it
+		shot.play();
 	//next change gradually the position of the bullet image from the location of the hero to the top of the screen..or off the screen
 	game.add.tween(bullet).to({y:-100},500,"Linear",true);
 
@@ -131,11 +144,14 @@ function killAlien (bullet,alien){
 	bullet.kill();
 	alien.kill();
 
+
 	//how about some explosions!
 	//  And create an explosion :)
     var explosion = explosions.getFirstExists(false);
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
+		explode_sound.play();
+
 }
 
 game.state.add('spaceshooter',SpaceShooter);
